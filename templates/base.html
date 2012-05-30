@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>	Fifth Base | {% block title %}{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="/static/bootstrap-responsive.css" type="text/css"> 
+    <link rel="stylesheet" href="/static/bootstrap.css" type="text/css"> 
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+    </style>
+  </head>
+  
+  <div class="navbar navbar-fixed-top nav-margin hero-padding">
+    <div class="navbar-inner nav-gray">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand brand-txt" href="/">Fifth Base Softball</a>
+        <div class="nav-collapse">
+          <ul class="nav">
+          
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </div>
+  </div>
+
+
+<body>
+  <div class="container">
+    <h1>{% block head %}{% endblock %}</h1>
+    {% block content %}{% endblock %}
+  </div>
+</body>
+</html>

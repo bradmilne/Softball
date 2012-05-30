@@ -1,0 +1,37 @@
+{% extends "base.html"%}
+{% block title %}Player Stats{% endblock %}
+{% block content %}
+<table class="table table-striped">
+	<tr>
+	   <th>Player</th>
+	   <th>AB</th>
+	   <th>H</th>
+	   <th>1B</th>
+	   <th>2B</th>
+	   <th>3B</th>
+	   <th>HR</th>
+	   <th>RBI</th>
+	   <th>AVG</th>
+	   <th>SLG</th>
+	   <th>wOBA</th>
+	 </tr>
+{% for stat in stats %}
+<tr>
+   <td>{{ stat.name }}</td>
+   <td>{{ stat.sum_atbats }}</td>
+   <td>{{ stat.sum_hits }}</td>
+   <td>{{ stat.sum_singles }}</td>
+   <td>{{ stat.sum_doubles }}</td>
+   <td>{{ stat.sum_triples }}</td>
+   <td>{{ stat.sum_homeruns }}</td>
+   <td>{{ stat.sum_rbis }}</td>
+   <td>{{ stat.avg }}</td>
+   <td>slg</td>
+   <td>woba</td>
+ </tr>
+{% endfor %}
+</table>
+
+
+
+{% endblock %}
