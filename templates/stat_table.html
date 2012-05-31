@@ -1,6 +1,19 @@
 {% extends "base.html"%}
 {% block title %}Player Stats{% endblock %}
 {% block content %}
+
+ <!-- Main hero unit for a primary marketing message or call to action -->
+ 
+	<div class="hero-new hero-margin drop-shadow curved curved-hz-1">
+	  <div class="container">
+        <h1 style="text-align:center">Fifth Base Official Power Rankings</h1>
+        <h2 style="text-align:center">Measuring the true value of a softball player.</h2>
+     </div>
+   </div>
+    <div class="container">
+	
+	<br><br><br>
+	
 <table class="table table-striped">
 	<tr>
 	   <th>Player</th>
@@ -15,23 +28,12 @@
 	   <th>SLG</th>
 	   <th>wOBA</th>
 	 </tr>
-{% for stat in stats %}
-<tr>
-   <td>{{ stat.name }}</td>
-   <td>{{ stat.sum_atbats }}</td>
-   <td>{{ stat.sum_hits }}</td>
-   <td>{{ stat.sum_singles }}</td>
-   <td>{{ stat.sum_doubles }}</td>
-   <td>{{ stat.sum_triples }}</td>
-   <td>{{ stat.sum_homeruns }}</td>
-   <td>{{ stat.sum_rbis }}</td>
-   <td>{{ stat.avg }}</td>
-   <td>slg</td>
-   <td>woba</td>
- </tr>
-{% endfor %}
+
 </table>
-
-
-
+{% for player in players  %}
+{{ player.name }}
+{{ player.hometown }}
+{{ player.avg }}
+<br>
+{% endfor %}
 {% endblock %}
