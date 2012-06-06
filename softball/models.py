@@ -46,34 +46,20 @@ class Player(models.Model):
     pitches = models.CharField(max_length=1, choices=PITCHES_CHOICES)
     hometown = models.CharField(max_length=32)
 
-    def avg(self, season_name):
+    def stats(self):
         sum_atbats = self.statline_set.filter(season_name=season_name).aggregate(Sum('at_bats')).values()[0]
         sum_singles = self.statline_set.filter(season_name=season_name).aggregate(Sum('singles')).values()[0]
         sum_doubles = self.statline_set.filter(season_name=season_name).aggregate(Sum('doubles')).values()[0]
         sum_triples = self.statline_set.filter(season_name=season_name).aggregate(Sum('triples')).values()[0]
-        sum_homeruns = self.statline_set.filter(season_name=season_name).aggregate(Sum('homeruns')).values()[0]  
-        avg = (sum_singles + sum_doubles + sum_triples + sum_homeruns) / float(sum_atbats)  
-        return avg
-		
-    def slg(self, season_name):
-	    sum_atbats = self.statline_set.filter(season_name=season_name).aggregate(Sum('at_bats')).values()[0]
-	    sum_singles = self.statline_set.filter(season_name=season_name).aggregate(Sum('singles')).values()[0]
-	    sum_doubles = self.statline_set.filter(season_name=season_name).aggregate(Sum('doubles')).values()[0]
-	    sum_triples = self.statline_set.filter(season_name=season_name).aggregate(Sum('triples')).values()[0]
-	    sum_homeruns = self.statline_set.filter(season_name=season_name).aggregate(Sum('homeruns')).values()[0]  
-	    slg = (sum_singles*1 + sum_doubles*2 + sum_triples*3 + sum_homeruns*4) / float(sum_atbats)  
-	    return slg
-	
-    def woba(self, season_name):
-	    sum_atbats = self.statline_set.filter(season_name=season_name).aggregate(Sum('at_bats')).values()[0]
-	    sum_singles = self.statline_set.filter(season_name=season_name).aggregate(Sum('singles')).values()[0]
-	    sum_doubles = self.statline_set.filter(season_name=season_name).aggregate(Sum('doubles')).values()[0]
-	    sum_triples = self.statline_set.filter(season_name=season_name).aggregate(Sum('triples')).values()[0]
-	    sum_homeruns = self.statline_set.filter(season_name=season_name).aggregate(Sum('homeruns')).values()[0]
-	    sum_rboe = self.statline_set.filter(season_name=season_name).aggregate(Sum('rboe')).values()[0]  
-	    rboe = (sum_singles*0.9 + sum_rboe*0.92 + sum_doubles*1.24 + 
+        sum_homeruns = self.statline_set.filter(season_name=season_name).aggregate(Sum('homeruns')).values()[0]
+        sum_rboe = self.statline_set.filter(season_name=season_name).aggregate(Sum('rboe')).values()[0]  
+        avg = (sum_singles + sum_doubles + sum_triples + sum_homeruns) / float(sum_atbats)
+        slg = (sum_singles*1 + sum_doubles*2 + sum_triples*3 + sum_homeruns*4) / float(sum_atbats)
+        woba = (sum_singles*0.9 + sum_rboe*0.92 + sum_doubles*1.24 + 
 	    sum_triples*1.56 + sum_homeruns*1.95) / float(sum_atbats)  
-	    return woba
+        return sum_atbats, sum_singles, sum_doubles, sum_triples, sum_homeruns, avg, slg, woba
+		
+  
 	
 	
 
