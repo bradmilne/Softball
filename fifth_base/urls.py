@@ -6,7 +6,7 @@ from django.contrib import admin
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    url(r'^$', stat_table),
+    url(r'^$', stat_table_spring),
     # Examples:
     # url(r'^$', 'fifth_base.views.home', name='home'),
     # url(r'^fifth_base/', include('fifth_base.foo.urls')),
