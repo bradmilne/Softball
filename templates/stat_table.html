@@ -23,19 +23,33 @@
 	   <th>2B</th>
 	   <th>3B</th>
 	   <th>HR</th>
-	   <th>RBI</th>
 	   <th>AVG</th>
 	   <th>SLG</th>
 	   <th>wOBA</th>
 	 </tr>
+{% for player in players  %}
 
-</table>
-{% for player in players  %}<br>
-{{ player.name }}<br>
-{{ player.hometown }}<br>
-{{ player.avg }}<br>
-
-{{ brad }}<br>
-<br>
+<tr>
+<td>{{ player.name }}</td>
+<td>{{ player.stats.0 }}</td>
+<td>{{ player.stats.1 }}</td>
+<td>{{ player.stats.2 }}</td>
+<td>{{ player.stats.3 }}</td>
+<td>{{ player.stats.4 }}</td>
+<td>{{ player.stats.5 }}</td>
+<td>{{ player.stats.6 }}</td>
+<td>{{ player.stats.7 }}</td>
+<td>{{ player.stats.8 }}</td>
+</tr>
 {% endfor %}
+</table>
+
+<br>
+<br>
+<br>
+
+
+
+<br>
+
 {% endblock %}
